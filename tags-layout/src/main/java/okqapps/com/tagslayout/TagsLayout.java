@@ -30,7 +30,7 @@ public class TagsLayout extends FlowLayout {
     private int verticalMargin = 5;
     private int horizontalPadding = 10;
     private int verticalPadding = 10;
-
+    private boolean viewMode;
 
     public TagsLayout(Context context) {
         super(context);
@@ -108,26 +108,28 @@ public class TagsLayout extends FlowLayout {
             int horizontalPaddingInPx = (int) (horizontalPadding * Resources.getSystem().getDisplayMetrics().density);
             int verticalPaddingInPx = (int) (verticalPadding * Resources.getSystem().getDisplayMetrics().density);
             textView.setPadding(horizontalPaddingInPx, verticalPaddingInPx, horizontalPaddingInPx, verticalPaddingInPx);
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //tag selected
-                    if (!getSelectedTags().contains(tagItem.getTagID())) {
-                        if (getSelectedTags().size() == maxSelectedNumber) {
-                            if (maxNumberMessage != null) {
-                                Utili.getInstance().showToastMessage(context, maxNumberMessage);
+            if (!viewMode) {
+                textView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //tag selected
+                        if (!getSelectedTags().contains(tagItem.getTagID())) {
+                            if (getSelectedTags().size() == maxSelectedNumber) {
+                                if (maxNumberMessage != null) {
+                                    Utili.getInstance().showToastMessage(context, maxNumberMessage);
+                                }
+                                return;
                             }
-                            return;
+                            getSelectedTags().add(tagItem.getTagID());
+                            selectItem(textView, tagItem);
+                        }//tag unselected
+                        else {
+                            getSelectedTags().remove(Integer.valueOf(tagItem.getTagID()));
+                            setTextViewUnSelectedBackground(textView);
                         }
-                        getSelectedTags().add(tagItem.getTagID());
-                        selectItem(textView, tagItem);
-                    }//tag unselected
-                    else {
-                        getSelectedTags().remove(Integer.valueOf(tagItem.getTagID()));
-                        setTextViewUnSelectedBackground(textView);
                     }
-                }
-            });
+                });
+            }
             addView(textView);
         }
     }
@@ -152,7 +154,7 @@ public class TagsLayout extends FlowLayout {
                 darkerColer = Color.parseColor(tagItem.getSelectedTextColor());
             }
             textView.setTextColor(darkerColer);
-            shape.setStroke(2, darkerColer);
+            shape.setStroke(1, darkerColer);
 
         } catch (Exception e) {
             e.getMessage();
@@ -264,5 +266,9 @@ public class TagsLayout extends FlowLayout {
      */
     public void setVerticalPadding(int verticalPadding) {
         this.verticalPadding = verticalPadding;
+    }
+
+    public void setViewMode(boolean viewMode) {
+        this.viewMode = viewMode;
     }
 }
