@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+//publish {
+//    userOrg = USER_ORG
+//    groupId = GROUP_ID
+//    artifactId = ARTIFACT_ID
+//    publishVersion = PUBLISH_VERSION
+//    desc = ''
+//}
+
+ext {
+    bintrayRepo = 'TagsLayout'
+    bintrayName = 'tags-layout'
+
+    publishedGroupId = GROUP_ID
+    libraryName = 'TagsLayout'
+    artifact = ARTIFACT_ID
+
+    libraryDescription = 'Android library to draw tags with colors and themes'
+
+    siteUrl = 'https://github.com/okq91/TagsLayout'
+    gitUrl = 'https://github.com/okq91/TagsLayout.git'
+
+    libraryVersion = PUBLISH_VERSION
+
+    developerId = 'okqadomi91'
+    developerName = 'Omar Qadomi'
+    developerEmail = 'okqadomi91@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+android {
+    compileSdkVersion 27
+
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
