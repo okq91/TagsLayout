@@ -1,5 +1,9 @@
 # TagsLayout
 Android library to draw tags with colors and themes 
+
+![selected tags](https://user-images.githubusercontent.com/11648787/49321174-82f14f80-f50e-11e8-9f69-8e82d31fd8a9.png)       
+
+
 ## How do I use TagsLayout?
 You can simply use it in your project by adding the below dependency to your app gradle:
 ```
@@ -35,5 +39,24 @@ In your class you can create your tages as you need
         tagsLayout.initializeTags(this, tagItems);
         
         
+###### You can set text size Samll, meduim or large        
 
-![dark mode](https://drive.google.com/file/d/1MFFBtYYTzkJheAnbk9BW8n_T2Itk5KzU/view?usp=sharing)       
+tagsLayout.setTagTextSize(TagTextSize.SMALL);
+
+###### Set tags theme Light, Dark or Gray
+
+tagsLayout.setUnSelectedTagTheme(UnSelectedTagTheme.GRAY);
+
+![Dark mode](https://user-images.githubusercontent.com/11648787/49321178-8b498a80-f50e-11e8-964d-847009ceeffe.png)       
+
+
+![Light mode](https://user-images.githubusercontent.com/11648787/49321179-8b498a80-f50e-11e8-96c8-4383968c88aa.png)
+
+###### You can set max number of tags that user can select      
+
+tagsLayout.setMaxSelectedNumber(5);
+
+
+###### You can set message to the user when it reaches the allowed max number
+
+tagsLayout.setMaxNumberMessage("You can't choose mor than 5 tags");
