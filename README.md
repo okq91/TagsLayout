@@ -84,3 +84,6 @@ tagsLayout.setViewMode(true);
 
 tagsLayout.initializeTags(this, tagItems);
 
+###### You can easily get list of selected tags' ids
+
+tagsLayout.getSelectedTags()
