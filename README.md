@@ -60,3 +60,27 @@ tagsLayout.setMaxSelectedNumber(5);
 ###### You can set message to the user when it reaches the allowed max number
 
 tagsLayout.setMaxNumberMessage("You can't choose mor than 5 tags");
+
+
+###### Change default values for horizantal and vertical margin between tags in dp
+
+tagsLayout.setHorizontalMargin(5);
+
+tagsLayout.setVerticalMargin(5);
+
+
+###### Change default values for horizantal and vertical padding for tags in dp
+
+tagsLayout.setHorizontalPadding(5);
+
+tagsLayout.setVerticalPadding(5);
+
+
+###### For showing tags in view mode (user can't select)
+
+tagsLayout.setViewMode(true);
+
+###### Last thing you have to do is call 
+
+tagsLayout.initializeTags(this, tagItems);
+
