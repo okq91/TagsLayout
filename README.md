@@ -9,7 +9,7 @@ You can simply use it in your project by adding the below dependency to your app
 ```
 dependencies {
 
-implementation 'com.okqapps.tagslayout:tags-layout:1.0.1'
+implementation 'com.okqapps.tagslayout:tags-layout:1.0.2'
 
 }
 ```
