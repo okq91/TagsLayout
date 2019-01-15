@@ -1,7 +1,7 @@
 package okqapps.com.tagslayout;
 
 public class TagItem {
-    private int tagID;
+    private Object tagID;
     private String tagText;
     private String selectedBackgroundColor;
     private String selectedTextColor;
@@ -14,7 +14,7 @@ public class TagItem {
      * @param selectedTextColor       hex color as string example: #FFFFFF
      * @param isSelected              if set as true tag will be shown as selected
      */
-    public TagItem(int tagID, String tagText, String selectedBackgroundColor, String selectedTextColor, boolean isSelected) {
+    public TagItem(Object tagID, String tagText, String selectedBackgroundColor, String selectedTextColor, boolean isSelected) {
         this.tagID = tagID;
         this.tagText = tagText;
         this.selectedBackgroundColor = selectedBackgroundColor;
@@ -22,7 +22,7 @@ public class TagItem {
         this.isSelected = isSelected;
     }
 
-    public TagItem(int tagID, String tagText, String selectedBackgroundColor, boolean isSelected) {
+    public TagItem(Object tagID, String tagText, String selectedBackgroundColor, boolean isSelected) {
         this.tagID = tagID;
         this.tagText = tagText;
         this.selectedBackgroundColor = selectedBackgroundColor;
@@ -37,7 +37,7 @@ public class TagItem {
         isSelected = selected;
     }
 
-    public int getTagID() {
+    public Object getTagID() {
         return tagID;
     }
 

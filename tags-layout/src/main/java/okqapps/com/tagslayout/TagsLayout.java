@@ -20,7 +20,7 @@ import java.util.List;
 
 public class TagsLayout extends FlowLayout {
     private List<TagItem> tagItemList;
-    private ArrayList<Integer> selectedTags = new ArrayList<>();
+    private ArrayList<Object> selectedTags = new ArrayList<>();
     private Context context;
     private int maxSelectedNumber = -1;
     private String maxNumberMessage = null;
@@ -124,7 +124,7 @@ public class TagsLayout extends FlowLayout {
                             selectItem(textView, tagItem);
                         }//tag unselected
                         else {
-                            getSelectedTags().remove(Integer.valueOf(tagItem.getTagID()));
+                            getSelectedTags().remove(tagItem.getTagID());
                             setTextViewUnSelectedBackground(textView);
                         }
                     }
@@ -219,7 +219,7 @@ public class TagsLayout extends FlowLayout {
      *
      * @return
      */
-    public ArrayList<Integer> getSelectedTags() {
+    public ArrayList<Object> getSelectedTags() {
         return selectedTags;
     }
 
