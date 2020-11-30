@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import okqapps.com.tagslayout.TagClickListener;
 import okqapps.com.tagslayout.TagItem;
 import okqapps.com.tagslayout.TagTextSize;
 import okqapps.com.tagslayout.TagsLayout;
 import okqapps.com.tagslayout.UnSelectedTagTheme;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TagClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
         tagsLayout.setUnSelectedTagTheme(UnSelectedTagTheme.LIGHT);
         tagsLayout.setMaxSelectedNumber(5);
         tagsLayout.setMaxNumberMessage("You can't choose mor than 5 tags");
+        tagsLayout.setTagsCallback(this);
         tagsLayout.initializeTags(this, tagItems);
+    }
+
+    @Override
+    public void onTagSelect(TagItem tagItem) {
+
+    }
+
+    @Override
+    public void onTagUnselect(TagItem tagItem) {
+
     }
 }

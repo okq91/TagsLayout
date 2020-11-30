@@ -31,6 +31,7 @@ public class TagsLayout extends FlowLayout {
     private int horizontalPadding = 10;
     private int verticalPadding = 10;
     private boolean viewMode;
+    private TagClickListener listerner;
 
     public TagsLayout(Context context) {
         super(context);
@@ -122,10 +123,14 @@ public class TagsLayout extends FlowLayout {
                             }
                             getSelectedTags().add(tagItem.getTagID());
                             selectItem(textView, tagItem);
+                            if (listerner != null)
+                                listerner.onTagSelect(tagItem);
                         }//tag unselected
                         else {
                             getSelectedTags().remove(tagItem.getTagID());
                             setTextViewUnSelectedBackground(textView);
+                            if (listerner != null)
+                                listerner.onTagUnselect(tagItem);
                         }
                     }
                 });
@@ -155,7 +160,6 @@ public class TagsLayout extends FlowLayout {
             }
             textView.setTextColor(darkerColer);
             shape.setStroke(1, darkerColer);
-
         } catch (Exception e) {
             e.getMessage();
         }
@@ -266,6 +270,13 @@ public class TagsLayout extends FlowLayout {
      */
     public void setVerticalPadding(int verticalPadding) {
         this.verticalPadding = verticalPadding;
+    }
+
+    /**
+     * callback listener when select/unselect tag
+     */
+    public void setTagsCallback(TagClickListener listerner) {
+        this.listerner = listerner;
     }
 
     public void setViewMode(boolean viewMode) {
