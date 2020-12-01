@@ -9,7 +9,7 @@ You can simply use it in your project by adding the below dependency to your app
 ```
 dependencies {
 
-implementation 'com.okqapps.tagslayout:tags-layout:1.0.2'
+implementation 'com.okqapps.tagslayout:tags-layout:1.0.3'
 
 }
 ```
@@ -25,7 +25,7 @@ And then you can add tagslayout view to your activity or fragment xml
         android:gravity="left" />
 ```
 
-In your class you can create your tages as you need
+In your class you can create your tags as you need
 
         TagsLayout tagsLayout = findViewById(R.id.tagsLayout);
         List<TagItem> tagItems = new ArrayList<>();
@@ -87,3 +87,10 @@ tagsLayout.initializeTags(this, tagItems);
 ###### You can easily get list of selected tags' ids
 
 tagsLayout.getSelectedTags()
+
+
+###### You can easily get call back for select/unselect tag item
+let your Activity/Fragment implement TagClickListener
+And then set tags click callback to your TagsLayout view
+
+tagsLayout.setTagsCallback(this) 
